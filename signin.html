@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div:first-child{
+            margin: auto;
+            width: 160px;
+        }
+        #logo{
+            width: 160px;
+            height: 30px;
+            
+        }
+        #box{
+            width: 424px;
+            height: 700px;
+            margin: auto;
+        
+        }
+        input{
+            width: 418px;
+            height: 40px;
+            margin-bottom: 10px;
+        }
+        #check{
+            width: 20px;
+            height: 20px;
+        }
+        #box img{
+            width: 20px;
+            height: 20px;
+        }
+        #box div:last-child{
+            
+            display: flex;
+            width: 50px;
+            margin: auto;
+            gap: 10px;
+        }
+        .para{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <img id="logo" src="https://www.orbitz.com/_dms/interstitial/logo.svg?locale=en_US&siteid=70201" alt="">
+        </div>
+        <hr>
+        <div id="box">
+        <form>
+            <h1>Sign in</h1>
+            <input id="email" type="text" placeholder="Email address">
+            <input id="password" type="text" placeholder="Password">
+            <input type="checkbox" id="check">
+            <label for="check">Keep me signed in</label>
+            <p>Selecting this checkbox will keep you signed into your account on this device until you sign out. Do not select this on shared devices.</p>
+            <h4>By creating an account, I agree to the Orbitz Terms and Conditions, Privacy Statement and Orbitz Rewards Terms and Conditions.</h4>
+            <input onclick="myFunction()" type="submit">
+        </form>
+        <p class="para">Don't have an account? <a href="signup.html">Create one</a></p>
+        <p class="para">or continue with</p>
+        <div>
+            <img src="https://a.travel-assets.com/egds/marks/apple.svg" alt="">
+            <img src="https://a.travel-assets.com/egds/marks/facebook.svg" alt="">
+        </div>
+        </div>
+</body>
+</html>
+<script>
+    var users=JSON.parse(localStorage.getItem('userCred2'))
+//console.log(users)
+function myFunction(){
+    event.preventDefault();
+    let emailEntered=document.getElementById('email').value;
+    let passwordEntered=document.getElementById('password').value;
+    for(let i=0; i<users.length; i++){
+        if(emailEntered==users[i].email && passwordEntered==users[i].password){
+            alert('login successfull')
+            window.location.href='index.html'
+            break;
+        }
+        else{
+            alert('invalid credentials')
+        }
+    }
+}
+
+</script>

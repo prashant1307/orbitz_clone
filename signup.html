@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div:first-child{
+            margin: auto;
+            width: 160px;
+        }
+        #logo{
+            width: 160px;
+            height: 30px;
+            
+        }
+        #box{
+            width: 424px;
+            height: 700px;
+            margin: auto;
+        
+        }
+        input{
+            width: 418px;
+            height: 40px;
+            margin-bottom: 10px;
+        }
+        #check{
+            width: 20px;
+            height: 20px;
+        }
+        #box img{
+            width: 20px;
+            height: 20px;
+        }
+        #box div:last-child{
+            
+            display: flex;
+            width: 50px;
+            margin: auto;
+            gap: 10px;
+        }
+        .para{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+    <img id="logo" src="https://www.orbitz.com/_dms/interstitial/logo.svg?locale=en_US&siteid=70201" alt="">
+    </div>
+    <hr>
+    <div id="box">
+    <form id="form1">
+        <h1>Create an account</h1>
+        <input id="email" type="text" placeholder="Email address">
+        <input id="firstName" type="text" placeholder="First name">
+        <input id="lastName" type="text" placeholder="Last name">
+        <input id="password" type="text" placeholder="Password">
+        <input type="checkbox" id="check">
+        <label for="check">Keep me signed in</label>
+        <p>Selecting this checkbox will keep you signed into your account on this device until you sign out. Do not select this on shared devices.</p>
+        <h4>By creating an account, I agree to the Orbitz Terms and Conditions, Privacy Statement and Orbitz Rewards Terms and Conditions.</h4>
+        <input onclick="myFunction()" type="submit">
+    </form>
+    <p class="para">Already have an account? <a href="signin.html">Sign in</a></p>
+    <p class="para">or continue with</p>
+    <div>
+        <img src="https://a.travel-assets.com/egds/marks/apple.svg" alt="">
+        <img src="https://a.travel-assets.com/egds/marks/facebook.svg" alt="">
+    </div>
+    </div>
+</body>
+</html>
+<script>
+
+var userData=JSON.parse(localStorage.getItem('userCred2')) || []
+    
+    function user(e,f,l,p){
+        this.first_name=f;
+        this.last_name=l;
+        this.email=e;
+        this.password=p;
+    }
+    
+    function myFunction(){
+        event.preventDefault();
+        let form=document.getElementById('form1')
+        let email=form.email.value;
+        let f_name=form.firstName.value;
+        let l_name=form.lastName.value;
+        let password=form.password.value;
+
+        let user1=new user(email,f_name,l_name,password)
+        console.log(user1)
+        userData.push(user1)
+        localStorage.setItem('userCred2',JSON.stringify(userData))
+        window.location.href='signin.html'
+        }
+</script>

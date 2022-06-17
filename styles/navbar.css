@@ -1,0 +1,14 @@
+#navbar .navbar-custom {
+    background-color: rgb(0,37,60);
+    }
+
+ #navbar .navbar-custom .navbar-text {
+     color: white;
+ }
+ #navbar .dropdown{
+     margin-left: -720px;
+ }
+ #navbar .navbar-brand{
+     margin-left: 50px;
+ }
+ 
